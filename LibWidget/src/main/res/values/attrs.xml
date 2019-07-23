@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="BorderTextView">
+        <attr name="Color" format="color" />
+        <attr name="BorderSize" format="integer" />
+        <attr name="IsRoundCorner" format="boolean"/>
+        <attr name="IsSolid" format="boolean" />
+    </declare-styleable>
+</resources>
