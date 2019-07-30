@@ -13,12 +13,12 @@
         android:layout_margin="5dp"
         android:text="标签"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/bt_tags2"
+        app:layout_constraintRight_toLeftOf="@id/bt_downloading_button"
         app:layout_constraintTop_toTopOf="parent" />
 
 
     <Button
-        android:id="@+id/bt_tags2"
+        android:id="@+id/bt_downloading_button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"

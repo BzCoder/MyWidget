@@ -1,4 +1,4 @@
-package me.bzcoder.widget;
+package me.bzcoder.widget.textview;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -11,23 +11,40 @@ import android.util.AttributeSet;
 import me.bzcoder.libwidget.R;
 
 /**
- * 带边框新闻小标签
+ * 带边框的小标签
  * 可选项：
  * 1.实心，空心
  * 2.颜色
  * 3.是否圆角
+ * 4.边框宽度
  *
  * @author : BaoZhou
  * @date : 2019/7/23 9:10
  */
 public class BorderTextView extends AppCompatTextView {
-    private int strokeWidth;
+
+    /*dialogfragment *
+     * 边框宽度
+     */
+    private float strokeWidth;
+
+    /**
+     * 边框颜色
+     */
     private int borderColor;
+
+    /**
+     * 是否实心
+     */
+    private boolean isSolid;
+
+    /**
+     * 是否圆角
+     */
+    private boolean isRoundCorner;
+
     private Paint borderPaint;
     private Paint solidPaint;
-
-    private boolean isSolid;
-    private boolean isRoundCorner;
 
     public BorderTextView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -35,10 +52,10 @@ public class BorderTextView extends AppCompatTextView {
         TypedArray a = context.getTheme().obtainStyledAttributes(attrs,
                 R.styleable.BorderTextView, 0, 0);
         try {
-            strokeWidth = a.getInteger(R.styleable.BorderTextView_BorderSize, 0);
-            borderColor = a.getInteger(R.styleable.BorderTextView_Color, 0);
-            isSolid = a.getBoolean(R.styleable.BorderTextView_IsSolid, false);
-            isRoundCorner = a.getBoolean(R.styleable.BorderTextView_IsRoundCorner, false);
+            strokeWidth = a.getDimension(R.styleable.BorderTextView_stroke_width, 0);
+            borderColor = a.getInteger(R.styleable.BorderTextView_stroke_color, 0);
+            isSolid = a.getBoolean(R.styleable.BorderTextView_solid, false);
+            isRoundCorner = a.getBoolean(R.styleable.BorderTextView_round_corner, false);
         } finally {
             a.recycle();
         }
@@ -80,21 +97,18 @@ public class BorderTextView extends AppCompatTextView {
 
     public void setBorderColor(int color) {
         borderColor = color;
-        invalidate();
-        requestLayout();
+        postInvalidate();
     }
 
 
     public void setSolid(boolean solid) {
         isSolid = solid;
-        invalidate();
-        requestLayout();
+        postInvalidate();
     }
 
     public void setRoundCorner(boolean roundCorner) {
         isRoundCorner = roundCorner;
-        invalidate();
-        requestLayout();
+        postInvalidate();
     }
 
 

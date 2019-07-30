@@ -16,7 +16,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".TagActivity" />
+        <activity android:name=".sample.TagActivity" />
+        <activity android:name=".sample.DownloadButtonActivity" />
     </application>
 
 </manifest>
